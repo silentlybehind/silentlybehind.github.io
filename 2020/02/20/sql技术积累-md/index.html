@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="sql,sparkSQL,hive," />
 
 
 
@@ -79,15 +79,19 @@
 
 
 
+<meta name="description" content="hivesql以及sparkSQL 使用处理数据技术行转列 列转行专题多行转一行12345678910111213141516171819selectid,map_id[&#39;a&#39;] as a,map_id[&#39;b&#39;] as b,map_id[&#39;c&#39;] as cfrom(  select   id  ,str_to_map(concat_ws(&#39;-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库sql查询优化理论">
-<meta property="og:url" content="http://yoursite.com/2020/02/02/%E6%95%B0%E6%8D%AE%E5%BA%93sql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/index.html">
+<meta property="og:title" content="sql技术积累.md">
+<meta property="og:url" content="http://yoursite.com/2020/02/20/sql%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF-md/index.html">
 <meta property="og:site_name" content="浩海紫冰">
+<meta property="og:description" content="hivesql以及sparkSQL 使用处理数据技术行转列 列转行专题多行转一行12345678910111213141516171819selectid,map_id[&#39;a&#39;] as a,map_id[&#39;b&#39;] as b,map_id[&#39;c&#39;] as cfrom(  select   id  ,str_to_map(concat_ws(&#39;-">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-02T02:44:13.000Z">
-<meta property="article:modified_time" content="2020-02-02T02:50:21.789Z">
+<meta property="article:published_time" content="2020-02-20T03:20:44.000Z">
+<meta property="article:modified_time" content="2020-02-20T03:59:11.738Z">
 <meta property="article:author" content="huwei">
-<meta property="article:tag" content="ML bigdate">
+<meta property="article:tag" content="sql">
+<meta property="article:tag" content="sparkSQL">
+<meta property="article:tag" content="hive">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/02/02/数据库sql查询优化理论/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/02/20/sql技术积累-md/"/>
 
 
 
 
 
-  <title>数据库sql查询优化理论 | 浩海紫冰</title>
+  <title>sql技术积累.md | 浩海紫冰</title>
   
 
 
@@ -261,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/02/%E6%95%B0%E6%8D%AE%E5%BA%93sql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/sql%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huwei">
@@ -278,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数据库sql查询优化理论</h1>
+          <h1 class="post-title" itemprop="name headline">sql技术积累.md</h1>
         
 
         <div class="post-meta">
@@ -290,8 +294,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-02T10:44:13+08:00">
-                2020-02-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-20T11:20:44+08:00">
+                2020-02-20
               </time>
             
 
@@ -331,8 +335,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/02/02/%E6%95%B0%E6%8D%AE%E5%BA%93sql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/02/%E6%95%B0%E6%8D%AE%E5%BA%93sql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" itemprop="commentCount"></span>
+                <a href="/2020/02/20/sql%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF-md/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/20/sql%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF-md/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -340,7 +344,7 @@
 
           
           
-             <span id="/2020/02/02/%E6%95%B0%E6%8D%AE%E5%BA%93sql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" class="leancloud_visitors" data-flag-title="数据库sql查询优化理论">
+             <span id="/2020/02/20/sql%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF-md/" class="leancloud_visitors" data-flag-title="sql技术积累.md">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -371,7 +375,39 @@
       
 
       
-        
+        <pre><code>hivesql以及sparkSQL 使用处理数据技术</code></pre><h1 id="行转列-列转行专题"><a href="#行转列-列转行专题" class="headerlink" title="行转列 列转行专题"></a>行转列 列转行专题</h1><h2 id="多行转一行"><a href="#多行转一行" class="headerlink" title="多行转一行"></a>多行转一行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">select</span><br><span class="line">id,map_id[&#39;a&#39;] as a</span><br><span class="line">,map_id[&#39;b&#39;] as b</span><br><span class="line">,map_id[&#39;c&#39;] as c</span><br><span class="line">from</span><br><span class="line">(</span><br><span class="line">  select </span><br><span class="line">  id</span><br><span class="line">  ,str_to_map(concat_ws(&#39;-&#39;,collect_set(concat(ext,&#39;,&#39;,cnt))), &#39;-&#39;, &#39;,&#39;) map_id</span><br><span class="line">  from </span><br><span class="line">  (</span><br><span class="line">  select 1 as id , &#39;a&#39; as ext , 1 as cnt  </span><br><span class="line">  union all </span><br><span class="line">  select 1 as id , &#39;b&#39; as ext , 2 as cnt  </span><br><span class="line">  union all </span><br><span class="line">  select 1 as id , &#39;c&#39; as ext , 3 as cnt  </span><br><span class="line">  ) a</span><br><span class="line">  group by 1</span><br><span class="line">) a</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<h2 id="一行转多行"><a href="#一行转多行" class="headerlink" title="一行转多行"></a>一行转多行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">select</span><br><span class="line">id</span><br><span class="line">,shop_id</span><br><span class="line">from</span><br><span class="line">(</span><br><span class="line">    select</span><br><span class="line">  id</span><br><span class="line">  ,str_to_map(shop_list,&#39;,&#39;) as shop_map</span><br><span class="line">  from</span><br><span class="line">  (</span><br><span class="line">      select 1 as id ,&#39;114549182,111936063,114805693&#39; as shop_list</span><br><span class="line">       union all </span><br><span class="line">      select 2 as id ,&#39;1145491821,1119360632,1148056933&#39; as shop_list</span><br><span class="line">  ) a</span><br><span class="line">) b lateral view explode(shop_map) at as  shop_id,uiu</span><br></pre></td></tr></table></figure>
+
+<h1 id="多行日期去重"><a href="#多行日期去重" class="headerlink" title="多行日期去重"></a>多行日期去重</h1><p> 场景:一个id在本月登录天数去重，或者所有id在本月登录天数去重。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line"> count(distinct case when label&#x3D;&#39;*&#39; then null else label end )  as deal_online_days</span><br><span class="line">from </span><br><span class="line">(</span><br><span class="line">select </span><br><span class="line">label</span><br><span class="line">from</span><br><span class="line">(</span><br><span class="line">    select</span><br><span class="line">    str_to_map(regexp_replace(concat(concat_ws(&#39;:&#39; ,collect_set(substr(&#39;1:2:3:4:5:6:7:8:9:a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p:q:r:s:t:u:v:w:x:y:z:&#39;</span><br><span class="line">                                                  ,day(begin_dt)*2-1</span><br><span class="line">                                                  ,(day(end_dt)-day(begin_dt)+1)*2</span><br><span class="line">                                                ))</span><br><span class="line">                                      ) --end concat_ws</span><br><span class="line">                                      ,&#39;:*&#39;)    --concat 防止结尾出现:</span><br><span class="line">                                      ,&#39;:&#123;1,&#125;&#39;,&#39;:&#39;) --replace 多个:合并为一个</span><br><span class="line">                                      ,&#39;:&#39;,&#39;,&#39;) --map</span><br><span class="line">                                      map_date</span><br><span class="line">    from (  </span><br><span class="line">         select &#39;1&#39; as id ,  &#39;2019-01-01&#39; as begin_dt,  &#39;2019-01-13&#39; as end_dt</span><br><span class="line">         union all </span><br><span class="line">         select &#39;1&#39; as id ,  &#39;2019-01-02&#39; as begin_dt,  &#39;2019-01-20&#39; as end_dt</span><br><span class="line">         union all</span><br><span class="line">         select &#39;1&#39; as id ,  &#39;2019-01-02&#39; as begin_dt,  &#39;2019-01-31&#39; as end_dt</span><br><span class="line">         ) a</span><br><span class="line">) a  lateral view explode(map_date) map_val as label,val</span><br><span class="line">group by 1</span><br><span class="line">) a</span><br><span class="line">代码二</span><br><span class="line"></span><br><span class="line">select count(distinct label)</span><br><span class="line">from (</span><br><span class="line">select</span><br><span class="line">id,map_val.label,count(1)</span><br><span class="line">--,map_keys(map_date)</span><br><span class="line">from</span><br><span class="line">(</span><br><span class="line"> select</span><br><span class="line">id,</span><br><span class="line">str_to_map(regexp_replace(regexp_replace(concat_ws(&#39;:&#39; ,collect_set(substr(&#39;1:2:3:4:5:6:7:8:9:a:b:c:d:e:f:g:h:i:j:k:l:m:n:o:p:q:r:s:t:u:v:w:x:y:z:&#39;</span><br><span class="line">                                                  ,day(begin_dt)*2-1</span><br><span class="line">                                                  ,(day(end_dt)-day(begin_dt)+1)*2</span><br><span class="line">                                                ))</span><br><span class="line">                                      )--end concat_ws</span><br><span class="line">                                      ,&#39;:&#123;1,&#125;&#39;,&#39;:&#39;) --replace</span><br><span class="line">                                      ,&#39;:$&#39;,&#39;&#39;)  -- 去掉以:结尾的字符串</span><br><span class="line">                                      ,&#39;:&#39;,&#39;,&#39;) --map</span><br><span class="line">                                      map_date</span><br><span class="line">from</span><br><span class="line">(</span><br><span class="line">  select &#39;1&#39; as id ,  &#39;2019-01-01&#39; as begin_dt,  &#39;2019-01-13&#39; as end_dt</span><br><span class="line">  union all </span><br><span class="line">  select &#39;1&#39; as id ,  &#39;2019-01-02&#39; as begin_dt,  &#39;2019-01-20&#39; as end_dt</span><br><span class="line">  union all</span><br><span class="line">   select &#39;1&#39; as id ,  &#39;2019-01-02&#39; as begin_dt,  &#39;2019-01-31&#39; as end_dt</span><br><span class="line">) a</span><br><span class="line">group by 1</span><br><span class="line">) a</span><br><span class="line">--lateral view explode(map_keys(map_date)) val as val</span><br><span class="line">lateral view explode(map_date) map_val as label,val</span><br><span class="line">group by 1,2</span><br><span class="line">) a</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>31</td>
+</tr>
+</tbody></table>
+
       
     </div>
     
@@ -386,6 +422,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/sql/" rel="tag"># sql</a>
+          
+            <a href="/tags/sparkSQL/" rel="tag"># sparkSQL</a>
+          
+            <a href="/tags/hive/" rel="tag"># hive</a>
+          
+        </div>
+      
 
       
       
@@ -395,8 +441,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/31/%E6%A8%A1%E5%BC%8F%E4%B8%8E%E9%87%8D%E6%9E%84-1/" rel="next" title="模式与重构1">
-                <i class="fa fa-chevron-left"></i> 模式与重构1
+              <a href="/2020/02/09/2019%E5%B9%B4%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" rel="next" title="2019年个人总结">
+                <i class="fa fa-chevron-left"></i> 2019年个人总结
               </a>
             
           </div>
@@ -404,10 +450,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/02/hexo%E6%95%99%E7%A8%8B/" rel="prev" title="hexo教程">
-                hexo教程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -462,8 +504,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -523,6 +574,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#行转列-列转行专题"><span class="nav-number">1.</span> <span class="nav-text">行转列 列转行专题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多行转一行"><span class="nav-number">1.1.</span> <span class="nav-text">多行转一行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一行转多行"><span class="nav-number">1.2.</span> <span class="nav-text">一行转多行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多行日期去重"><span class="nav-number">2.</span> <span class="nav-text">多行日期去重</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
